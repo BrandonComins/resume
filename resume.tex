@@ -1,0 +1,176 @@
+\documentclass[a4paper,10pt]{article}
+
+% Useful Packages
+\usepackage{marvosym, verbatim}
+\usepackage{xunicode,xltxtra,url,parskip} 	% other packages for formatting
+\RequirePackage{color}
+\usepackage[big]{layaureo} 				% better formatting of the A4 page
+\usepackage{titlesec}					% custom \section
+\usepackage{fontspec}
+\usepackage{setspace}
+
+% Setup hyperref package, and colors for links
+\usepackage{hyperref}
+\definecolor{links}{rgb}{0,0.15,0.6}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+
+% Fonts
+\defaultfontfeatures{Mapping=tex-text}
+\setmainfont[
+SmallCapsFont = Fontin-SmallCaps.otf,
+BoldFont = Fontin-Bold.otf,
+ItalicFont = Fontin-Italic.otf
+]
+{Fontin.otf}
+
+% Tweak a bit the margin
+\addtolength{\voffset}{-1.4cm}
+\addtolength{\textheight}{2.8cm}
+\addtolength{\hoffset}{-1.3cm}
+\addtolength{\textwidth}{2.6cm}
+
+% Custom titles
+\titleformat{\section}{\vspace{-0.5mm}\Large\scshape\raggedright}{}{0em}{}[{\titlerule[.8pt]}]
+\titleformat{\subsection}{\scshape\raggedright}{}{0em}{}[{\titlerule[.4pt]}]
+\titlespacing{\section}{0pt}{0pt}{0pt}
+\titlespacing{\subsection}{0pt}{2pt}{2pt}
+
+%--------------------BEGIN DOCUMENT----------------------
+\begin{document}
+\pagestyle{empty} % non-numbered pages
+\font\fb=''[cmr10]'' % for use with \LaTeX command
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{0}
+
+\definecolor{light-gray}{gray}{0.1}
+\color{light-gray}
+
+%--------------------TITLE-------------------------------
+\newcommand{\email}[0]{\href{mailto:brandcomin@gmail.com}{brandcomin@gmail.com}}
+\newcommand{\github}[0]{\href{https://github.com/BrandonComins}{github.com/BrandonComins}}
+\newcommand{\phone}[0]{(818) 564-9626}
+\newcommand{\titlesep}[0]{ • }
+\newcommand{\titlename}[2]{\par{\centering{\Huge #1 \textsc{#2}}\par}}
+\newcommand{\info}[1]{\centering{\ensuremath{\overline{\underline{\mbox{#1}}}}}}
+\titlename{Brandon}{Comins}
+\info{\email\titlesep\phone\titlesep\github}
+
+
+%--------------------CUSTOM OPERATORS--------------------
+\newcommand{\term}[1]{\texttt{\uppercase{#1}}}
+
+\newcommand{\resumeSec}[2]{\section{#1}\begin{tabular}{@{}p{50pt}|p{\columnwidth-50pt-2\tabcolsep}@{}}#2\end{tabular}}
+\newcommand{\sectionNL}[0]{\\\multicolumn{2}{c}{}\vspace{1.5mm}\\}
+\newcommand{\smallNL}[0]{\\\multicolumn{2}{c}{}\vspace{1mm}\\}
+\newcommand{\entryNL}[0]{\\\vspace{1mm}\\}
+% usage \workEntry{time}{position and workplace}{location}{extra detail}{content}
+\newcommand{\workEntry}[5]{\raggedleft\textsc{#1}&\textbf{#2} #3\entryNL\raggedleft\footnotesize{#4}&\small{#5}}
+% usage \projEntry{time}{title}{languages}{content}
+\newcommand{\projEntry}[4]{\raggedleft\textsc{#1}&\textbf{#2} \textsc{#3}\entryNL&\small{#4}}
+% usage \expEntry{time}{experience}
+\newcommand{\expEntry}[2]{\raggedleft\textsc{#1}\vspace{-1mm}& \small #2}
+
+%--------------------SECTIONS----------------------------
+\resumeSec{Work Experience}{
+\smallNL
+
+\workEntry{2021}{Robotics Teacher for RoboQ}{}{}{
+Remotely taught high school students arduino robotics. Each student learned how to program, solder, and cad. I bettered my communication skills by making sure each student understood the material.}
+ %\workEntry{2015-2018}{Tech Department at Green Polishing Solutions}{Canoga Park, CA}{}{
+%Set up, repaired, and maintained the company’s servers, computers, and printers- mostly involving installing software, removing viruses, and swapping parts. }
+}
+
+\resumeSec{Projects}{
+\smallNL
+
+\projEntry{2020}{Curdle Game Jam 5}{C/C++
+{\href{https://github.com/BrandonComins/Curdle-Game-Jam-5}{\color{links}{github.com/BrandonComins/Game}}}}{
+Entered a game jam. I Implemented a functioning camera and procedurally generated dungeon. I learned to use C\# and the debugger for the first time. 
+}
+\sectionNL
+
+\projEntry{2020}{Drone}{C/C++
+{\href{https://github.com/BrandonComins/Eng-7B-Drone}{\color{links}{github.com/BrandonComins/Drone}}}}{
+Entered a class competition to construct a drone with sensors that determine when to deploy a servo-actuated payload. Despite intially struggling with the aerodynamics of the drone, I re-desiged and re-built my drone four times until it could finally fly! I placed 3rd out of 50+ other groups. 
+}
+\sectionNL
+
+\projEntry{2019}{Rocket Flight Compter}{C/C++
+{\href{https://github.com/BrandonComins/Rocket}{\color{links}{github.com/BrandonComins/Rocket}}}}{
+Constructed a flight computer that logged data and used sensors to determine when to deploy the parachute. Although this was an annual project for my high school, I was the first person in the school's history to take the challenge of making a flight computer instead of buying one.
+This project taught me problem solving through debugging, wire management and soldering, and about mosfets.
+ }
+\sectionNL
+
+\projEntry{2019}{Fruit Piano}{C/C++
+{\href{https://github.com/BrandonComins/FruitPiano}{\color{links}{github.com/BrandonComins/FruitPiano}}}}{
+Went to a science fair at Darby Elementary School to demonstrate STEM and robotics. I made a fruit-actuated "piano," to show that wiring and electronics can be fun. I learned about using unconvential methods, such as fruit, to close a wiring loop.
+}
+\sectionNL
+
+\projEntry{2019}{RC Car}{C/C++
+{\href{https://github.com/BrandonComins/RC-Car}{\color{links}{github.com/BrandonComins/RC-Car}}}}{
+While being a camp counselor, I constructed a remote controlled car using an arduino. I made this project because I wanted to show the kids that robotics isn't just work, but is also fun.  This project also taught me how to use speed controllers and a bluetooth module for the first time. 
+}
+\sectionNL
+
+%\projEntry{2015-2019}{FRC Robotics}{Java}
+%{\href{https://github.com/team4element}{\color{links}{github.com/team4element}}}{
+%As a member of First Robotics Competition, I took on programming the robot. Here I actuated motors, via xbox controller in teleoperation, as well as controlled the robot autonomously. In autonomous mode, the robot could vision track, and path find.
+%}.}
+%\sectionNL
+
+}
+
+\resumeSec{Technical Skills and Qualifications}{
+\smallNL
+\raggedleft Languages& \textsc{Java, Python, C++, C, Verilog, VHDL, MIPS Assembly, Regex, Embeded Systems, Latex}
+\smallNL
+\raggedleft Software& Vivavodo, Git, Visual Studio, MATLAB, Solidworks, Simply3D,  Arduino 
+}
+
+\begin{tabular}{@{}p{.65\textwidth}p{.35\textwidth-2\tabcolsep}@{}}
+\resumeSec{Education}{
+\sectionNL
+\workEntry{2019-2023}{University of California, Irvine}{Irvine, CA}{}{
+Graduation in 2023, \textsc{Computer Science Engineering B.S}}
+\smallNL
+\workEntry{2019}{Los Angeles Pierce College}{Woodland Hills, CA}{}{
+Concurrent enrollment with high school (HTLA)}}
+&
+\section{Relevant Coursework}
+\vspace{1.7mm}\raggedright\small
+% Electrical,
+Electrical Devices and Systems,
+Organization of Digital Computers,
+%Programming
+Python Programming,
+Advanced C,
+% Data Structures,
+Discrete Mathematics \& Probability Theory,
+% Linear Algebra \& Differential Equations,
+%Calculus 3,
+% ETC
+Intro to Software Engineering
+\end{tabular}
+
+\resumeSec{Additional Experience}{
+\smallNL
+
+
+\expEntry{2015-2018}{Tech Department at Green Polishing Solutions}
+\smallNL
+\expEntry{2016-2018}{Volunteer at Moption Picture Funding Hospital}
+\smallNL
+%\expEntry{2018}{Camp counselor for lego robotics camp}
+%\smallNL
+\expEntry{2019}{Computer Teacher at One Generation}
+\smallNL
+\expEntry{2019}{Team captain of high school robotics}
+\smallNL
+\expEntry{2019}{Mentor Darby Elementary in Lego Robotics (First Lego League)}
+\smallNL
+\expEntry{2021-2022}{Mentor High Tech Los Angeles in FRC robotics (First Robotics Competition)}
+\smallNL
+}
+\end{document}
